@@ -1,8 +1,7 @@
 *** Settings ***
-Library    SeleniumLibrary
 Documentation  This suite contains simple test demo for www.airbnb.com
 Library  SeleniumLibrary
-Test Teardown  close all browsers
+Test Teardown  Close All Browsers
 
 *** Variables ***
 ${url_main}  https://www.airbnb.com
@@ -15,11 +14,11 @@ ${xpathToCountry}  //*[@id="country"]
 ${Finland_code}  358FI
 
 *** Test Cases ***
-User can search for accomondations by inputting city names
-    [Documentation]  The user can search for accomondations based on the location
+User can search for accommodations by inputting city names
+    [Documentation]  The user can search for accommodations based on the location
     Given The user have opened the page
     When The user enter the destination city and click search
-    Then The user can find a list of accomations located in the destination city
+    Then The user can find a list of accommodations located in the destination city
 
 User can not login with empty phone number input
     [Documentation]  The user can not continue to login if no phone number is entered
@@ -30,7 +29,7 @@ User can not login with empty phone number input
 User can not login with fake phone number
     [Documentation]  The user can not login by entering fake phone number
     Given The user opened the login page
-    When The user change the contry code to Finland if it was not
+    When The user change the country code to Finland if it was not
     And The user enter an invalid number  ${fake_number}
     Then There is error about a fake phone number
 
@@ -85,7 +84,7 @@ The user enter an invalid number
     Submit Form
     Sleep  3s
 
-The user change the contry code to Finland if it was not
+The user change the country code to Finland if it was not
     ${Get_country}  Get Selected List Value   ${xpathToCountry}
     Run Keyword If  '${Get_country}' != '${Finland_code}'
     ...  Select From List By Value  ${xpathToCountry} ${Finland_code}
