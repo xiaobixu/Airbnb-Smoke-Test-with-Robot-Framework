@@ -1,17 +1,25 @@
 *** Settings ***
-Documentation  This suite contains simple test demo for www.airbnb.com
+Documentation  This suite contains simple test demo for www.airbnb.com. The demonstrations contains the following
+...            cases:
+...            * User can search for accommodations by inputting city names
+...            * User can not login with empty phone number input
+...            * User can not login with fake phone number
+...            * User can not enter letters into phone number input field
+...
+...            The scope of this project is limited to the functional testing of the features described above of this
+...            document. Non-functional testing like stress,performance is beyond scope of this project.
 Library  SeleniumLibrary
 Test Teardown  Close All Browsers
 
 *** Variables ***
-${url_main}  https://www.airbnb.com
-${url_login}  https://www.airbnb.com/login
-${browser}  chrome
-${location}  New York
-${fake_number}  123456
-${lettersStr}  abcdef
-${xpathToCountry}  //*[@id="country"]
-${Finland_code}  358FI
+${url_main}  https://www.airbnb.com  #The url to Airbnb main page
+${url_login}  https://www.airbnb.com/login  #The url to Airbnb Login page
+${browser}  chrome  #The chosen browser
+${location}  New York  #The destination city name where to find accommodations
+${fake_number}  123456  #An invalid phone number
+${lettersStr}  abcdef  #An invalid phone number containing letters
+${xpathToCountry}  //*[@id="country"]  #Xpath of the country code field in Airbnb Login page
+${Finland_code}  358FI  #Country code of Finland
 
 *** Test Cases ***
 User can search for accommodations by inputting city names
