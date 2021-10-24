@@ -1,10 +1,12 @@
 *** Settings ***
 Documentation  This suite contains simple test demo for www.airbnb.com. The demonstrations contains the following
-...            cases:\n
-...            * User can search for accommodations by inputting city names\n
-...            * User can not login with empty phone number input\n
-...            * User can not login with fake phone number\n
-...            * User can not enter letters into phone number input field\n
+...            cases:
+...
+...            * User can search for accommodations by inputting city names \n
+...            * User can not login with empty phone number input \n
+...            * User can not login with fake phone number \n
+...            * User can not enter letters into phone number input field \n
+...
 ...            The scope of this project is limited to the functional testing of the features described above of this
 ...            document. Non-functional testing like stress,performance is beyond scope of this project.
 Library  SeleniumLibrary
@@ -15,7 +17,7 @@ ${url_main}  https://www.airbnb.com  #The url to Airbnb main page
 ${url_login}  https://www.airbnb.com/login  #The url to Airbnb Login page
 ${browser}  chrome  #The chosen browser
 ${location}  New York  #The destination city name where to find accommodations
-${fake_number}  123456  #An invalid phone number
+${fake_number}  601969763  #An invalid phone number
 ${lettersStr}  abcdef  #An invalid phone number containing letters
 ${xpathToCountry}  //*[@id="country"]  #Xpath of the country code field in Airbnb Login page
 ${Finland_code}  358FI  #Country code of Finland
@@ -34,7 +36,10 @@ User can not login with empty phone number input
     Then There is error about empty phone number shown on the page
 
 User can not login with fake phone number
-    [Documentation]  The user can not login by entering fake phone number
+    [Documentation]  The user can not login by entering fake phone number.
+    ...              This test case might fail due to the Airbnb page robot detector.
+    ...              Or it already reach the maximum attempts. This test case need improvment.
+    ...              Otherwise, this is test case needs to be dropped from automated test.
     Given The user opened the login page
     And The user change the country code to Finland if it was not
     When The user enter an invalid number  ${fake_number}
