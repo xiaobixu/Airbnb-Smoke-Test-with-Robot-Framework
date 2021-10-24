@@ -1,11 +1,10 @@
 *** Settings ***
 Documentation  This suite contains simple test demo for www.airbnb.com. The demonstrations contains the following
-...            cases:
-...            * User can search for accommodations by inputting city names
-...            * User can not login with empty phone number input
-...            * User can not login with fake phone number
-...            * User can not enter letters into phone number input field
-...
+...            cases:\n
+...            * User can search for accommodations by inputting city names\n
+...            * User can not login with empty phone number input\n
+...            * User can not login with fake phone number\n
+...            * User can not enter letters into phone number input field\n
 ...            The scope of this project is limited to the functional testing of the features described above of this
 ...            document. Non-functional testing like stress,performance is beyond scope of this project.
 Library  SeleniumLibrary
@@ -37,14 +36,16 @@ User can not login with empty phone number input
 User can not login with fake phone number
     [Documentation]  The user can not login by entering fake phone number
     Given The user opened the login page
-    When The user change the country code to Finland if it was not
-    And The user enter an invalid number  ${fake_number}
+    And The user change the country code to Finland if it was not
+    When The user enter an invalid number  ${fake_number}
+    And The User Click On The Continue Button
     Then There is error about a fake phone number
 
 User can not enter letters into phone number input field
     [Documentation]  The phone number input can not take letters as input
     Given The user opened the login page
     When The user enter an invalid number  ${lettersStr}
+    And The User Click On The Continue Button
     Then There is error about empty phone number shown on the page
 
 *** Keywords ***
@@ -80,7 +81,7 @@ The user opened the login page
 
 The user click on the Continue button
     Submit Form
-    Sleep  3s
+    Sleep  5s
 
 There is error about empty phone number shown on the page
     Page Should Contain Element  id:phone-number-error-phoneNumber
@@ -89,8 +90,6 @@ There is error about empty phone number shown on the page
 The user enter an invalid number
     [Arguments]   ${input_number}
     Input Text  id:phoneInputphoneNumber  ${input_number}
-    Submit Form
-    Sleep  3s
 
 The user change the country code to Finland if it was not
     ${Get_country}  Get Selected List Value   ${xpathToCountry}
