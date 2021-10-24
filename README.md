@@ -3,7 +3,7 @@
 This suite contains simple test demo for www.airbnb.com. Airbnb is an online market platform for homestay and lodging for vacation rental and tourism activities (reference: wikipedia). 
 
 ## Test Scope
-The scope of this project is limited to the functional testing of the features described above of this document. Non-functional testing like stress,performance is beyond scope of this project.
+The scope of this project is limited to the functional testing of the features described in the following session of this document. Non-functional testing like stress,performance is beyond scope of this project.
 
 ## Test Environment
 Please read reqirements.txt for the required packages information. The browser is Chrown. The device needs to be connected to internet.
