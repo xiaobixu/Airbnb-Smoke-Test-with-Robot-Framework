@@ -56,7 +56,7 @@ The user enter the destination city and click search
     Wait Until Page Contains  Stays in ${location}
     Sleep  5s
 
-The user can find a list of accomations located in the destination city
+The user can find a list of accommodations located in the destination city
     Page Should Contain  Stays in ${location}
     Page Should Contain Element  id:menuItemButton-room_type
     Page Should Contain Element  id:menuItemButton-price_range
