@@ -15,11 +15,11 @@ In addition, some test cases related entering invalid phone number might fail, d
 
 ## Specifications & Requirement:
 ### Basic search based on location
-* User can search for accommodations by inputting city names \n
+* User can search for accommodations by inputting city names 
 ### Basic login errors
-* User can not login with empty phone number input \n
-* User can not login with fake phone number \n
-* User can not enter letters into phone number input field \n
+* User can not login with empty phone number input 
+* User can not login with fake phone number 
+* User can not enter letters into phone number input field 
 ### More test cases
 
 ## How to run the test
