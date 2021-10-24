@@ -39,7 +39,7 @@ User can not login with fake phone number
     [Documentation]  The user can not login by entering fake phone number.
     ...              This test case might fail due to the Airbnb page robot detector.
     ...              Or it already reach the maximum attempts. This test case need improvment.
-    ...              Otherwise, this is test case needs to be dropped from automated test.
+    ...              Otherwise, this test case needs to be dropped from automated test.
     Given The user opened the login page
     And The user change the country code to Finland if it was not
     When The user enter an invalid number  ${fake_number}
