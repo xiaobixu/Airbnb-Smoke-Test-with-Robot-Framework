@@ -8,7 +8,7 @@ The scope of this project is limited to the functional testing of the features d
 ## Test Environment
 Please read reqirements.txt for the required packages information. The browser is Chrown. The device needs to be connected to internet.
 
-## Test limitations and risk
+## Test Limitations and Risk
 Airbnb web page is of a dynamic web format, where the xpath of some elements might change if the size of the browser is changed. Therefore, some test cases requiring xpath variables might fail.
 
 In addition, some test cases related entering invalid phone number might fail, due to Airbnb page robot detector, or it already reaches the maximum attempts in a time frame. They need some improvement, or otherwise need to droped from the automated test.
