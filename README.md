@@ -1,4 +1,4 @@
-# Airbnb-Smoke-Test-with-Robot-Framework
+# Airbnb Smoke Test with Robot Framework
 ## Test Product
 This suite contains simple test demo for www.airbnb.com. Airbnb is an online market platform for homestay and lodging for vacation rental and tourism activities (reference: wikipedia). 
 
