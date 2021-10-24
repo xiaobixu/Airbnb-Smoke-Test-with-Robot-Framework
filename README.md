@@ -20,3 +20,14 @@ In addition, some test cases related entering invalid phone number might fail, d
 * User can not login with empty phone number input \n
 * User can not login with fake phone number \n
 * User can not enter letters into phone number input field \n
+
+## How to run the test
+In order to run the application sucessfully, please install the necessary packages/libraries in requirements.txt. It is recommended to run the app in virtual environment to isolate the dependencies from others, you can run:
+> python3 -m venv .venv
+> 
+> source .venv/bin/activate #Activate the virtual environment
+> 
+> pip install [package]
+
+To run the test:
+> robot test.robot
