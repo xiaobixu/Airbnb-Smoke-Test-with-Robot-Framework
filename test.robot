@@ -20,14 +20,22 @@ ${location}  New York  #The destination city name where to find accommodations
 ${fake_number}  601969763  #An invalid phone number
 ${lettersStr}  abcdef  #An invalid phone number containing letters
 ${xpathToCountry}  //*[@id="country"]  #Xpath of the country code field in Airbnb Login page
-${Finland_code}  358FI  #Country code of Finland
+${Finland_code}  358FI  #Country code of( Finland
+${typeOfPlace}  Hotel room
 
 *** Test Cases ***
 User can search for accommodations by inputting city names
     [Documentation]  The user can search for accommodations based on the location
-    Given The user have opened the page
-    When The user enter the destination city and click search
-    Then The user can find a list of accommodations located in the destination city
+    Given The user have opened the main page
+    When The user enter the destination city and click Search
+    Then The user can find the result page of the destination
+
+User can filter result by type of place
+   [Documentation]  The user can filter the search result by type of place
+   Given The user have opened the main page
+   And The user enter the destination city and click Search
+   Then The user can find the result page of the destination
+   And The user can filter the result by type of place
 
 User can not login with empty phone number input
     [Documentation]  The user can not continue to login if no phone number is entered
@@ -54,7 +62,7 @@ User can not enter letters into phone number input field
     Then There is error about empty phone number shown on the page
 
 *** Keywords ***
-The user have opened the page
+The user have opened the main page
     Open Browser  ${url_main}  ${browser}
     ${Get_title}    Get Title
     Should Be Equal As Strings
@@ -64,17 +72,26 @@ The user have opened the page
     Page Should Contain  Not sure where to go? Perfect.
     Sleep  5s
 
-The user enter the destination city and click search
+The user enter the destination city and click Search
     Input Text   id:bigsearch-query-attached-location-input  ${location}
     Submit Form
     Wait Until Page Contains  Stays in ${location}
     Sleep  5s
 
-The user can find a list of accommodations located in the destination city
+The user can find the result page of the destination
     Page Should Contain  Stays in ${location}
     Page Should Contain Element  id:menuItemButton-room_type
     Page Should Contain Element  id:menuItemButton-price_range
     Page Should Contain Element  id:menuItemButton-flexible_cancellation
+
+The user can filter the result by type of place
+    Click Element  xpath://*[@id="menuItemButton-room_type"]/button/span[1]/div
+    Sleep   3s
+    Click Element    id:filterItem-room_type-checkbox-room_types-Hotel_room-row-checkbox
+    Click Button  id:filter-panel-save-button
+    Sleep   3s
+    Element Should Contain  xpath://*[@id="menuItemButton-room_type"]/button/span[1]/div/span[1]
+    ...                     ${typeOfPlace}
 
 The user opened the login page
     Open Browser  ${url_login}  ${browser}
