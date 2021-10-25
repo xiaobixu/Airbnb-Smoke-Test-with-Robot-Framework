@@ -11,7 +11,7 @@ Please read reqirements.txt for the required packages information. The browser i
 ## Test Limitations and Risk
 Airbnb web page is of a dynamic web format, where the xpath of some elements might change if the size of the browser is changed. Therefore, some test cases requiring xpath variables might fail.
 
-In addition, some test cases related entering invalid phone number might fail, due to Airbnb page robot detector, or it already reaches the maximum attempts in a time frame. They need some improvement, or otherwise need to droped from the automated test.
+In addition, some test cases related entering invalid phone number might fail, due to Airbnb page robot detector, or the fact that it already reaches the maximum attempts in a time frame. They need some improvement, or otherwise need to be droped from the automated test.
 
 ## Features:
 ### Basic search based on location
