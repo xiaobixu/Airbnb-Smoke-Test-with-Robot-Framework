@@ -16,6 +16,7 @@ In addition, some test cases related entering invalid phone number might fail, d
 ## Features:
 ### Basic search based on location
 * User can search for accommodations by inputting city names 
+* User can filter result by type of place
 ### Basic login errors
 * User can not login with empty phone number input 
 * User can not login with fake phone number 
