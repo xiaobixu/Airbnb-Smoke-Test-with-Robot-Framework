@@ -26,21 +26,21 @@ ${typeOfPlace}  Hotel room
 *** Test Cases ***
 User can search for accommodations by inputting city names
     [Documentation]  The user can search for accommodations based on the location
-    Given The user have opened the main page
-    When The user enter the destination city and click Search
+    Given The user has opened the main page
+    When The user enters the destination city and click Search
     Then The user can find the result page of the destination
 
 User can filter result by type of place
    [Documentation]  The user can filter the search result by type of place
-   Given The user have opened the main page
-   And The user enter the destination city and click Search
+   Given The user has opened the main page
+   And The user enters the destination city and click Search
    Then The user can find the result page of the destination
    And The user can filter the result by type of place
 
 User can not login with empty phone number input
     [Documentation]  The user can not continue to login if no phone number is entered
     Given The user opened the login page
-    When The user click on the Continue button
+    When The user clicks on the Continue button
     Then There is error about empty phone number shown on the page
 
 User can not login with fake phone number
@@ -49,20 +49,20 @@ User can not login with fake phone number
     ...              Or it already reach the maximum attempts. This test case need improvment.
     ...              Otherwise, this test case needs to be dropped from automated test.
     Given The user opened the login page
-    And The user change the country code to Finland if it was not
-    When The user enter an invalid number  ${fake_number}
-    And The User Click On The Continue Button
+    And The user changes the country code to Finland if it was not
+    When The user enters an invalid number  ${fake_number}
+    And The User clicks on The Continue button
     Then There is error about a fake phone number
 
 User can not enter letters into phone number input field
     [Documentation]  The phone number input can not take letters as input
     Given The user opened the login page
-    When The user enter an invalid number  ${lettersStr}
-    And The User Click On The Continue Button
+    When The user enters an invalid number  ${lettersStr}
+    And The User Clicks On The Continue Button
     Then There is error about empty phone number shown on the page
 
 *** Keywords ***
-The user have opened the main page
+The user has opened the main page
     Open Browser  ${url_main}  ${browser}
     ${Get_title}    Get Title
     Should Be Equal As Strings
@@ -72,7 +72,7 @@ The user have opened the main page
     Page Should Contain  Not sure where to go? Perfect.
     Sleep  5s
 
-The user enter the destination city and click Search
+The user enters the destination city and click Search
     Input Text   id:bigsearch-query-attached-location-input  ${location}
     Submit Form
     Wait Until Page Contains  Stays in ${location}
@@ -101,7 +101,7 @@ The user opened the login page
     Page Should Contain  Welcome to Airbnb
     Sleep  5s
 
-The user click on the Continue button
+The user clicks on the Continue button
     Submit Form
     Sleep  5s
 
@@ -109,11 +109,11 @@ There is error about empty phone number shown on the page
     Page Should Contain Element  id:phone-number-error-phoneNumber
     Page Should Contain    Phone number is required.
 
-The user enter an invalid number
+The user enters an invalid number
     [Arguments]   ${input_number}
     Input Text  id:phoneInputphoneNumber  ${input_number}
 
-The user change the country code to Finland if it was not
+The user changes the country code to Finland if it was not
     ${Get_country}  Get Selected List Value   ${xpathToCountry}
     Run Keyword If  '${Get_country}' != '${Finland_code}'
     ...  Select From List By Value  ${xpathToCountry} ${Finland_code}
