@@ -29,7 +29,7 @@ In order to run the application sucessfully, please install the necessary packag
 > 
 > source .venv/bin/activate #Activate the virtual environment
 > 
-> pip install [package]
+> pip3 install -r requirements.txt
 
 To run the test:
 > robot test.robot
